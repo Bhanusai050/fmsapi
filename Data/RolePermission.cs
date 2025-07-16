@@ -17,8 +17,5 @@ namespace FmsAPI.Data
         public int RolePermissionID { get; set; }
         public Nullable<int> RoleID { get; set; }
         public Nullable<int> PermissionID { get; set; }
-    
-        public virtual Permission Permission { get; set; }
-        public virtual Role Role { get; set; }
     }
 }

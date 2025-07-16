@@ -9,7 +9,7 @@ namespace FmsAPI.Service
 {
     public class PasswordResetTokenService: IPasswordResetTokenService
     {
-    FarmManagementSystemEnities context = new FarmManagementSystemEnities();
+        FarmManagementSystemEntities context = new FarmManagementSystemEntities();
 
         public List<PasswordResetToken> GetTokens()
         {

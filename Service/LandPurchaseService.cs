@@ -9,7 +9,7 @@ namespace FmsAPI.Service
 {
     public class LandPurchaseService: ILandPurchaseService
     {
-    FarmManagementSystemEnities context = new FarmManagementSystemEnities();
+        FarmManagementSystemEntities context = new FarmManagementSystemEntities();
 
         public List<LandPurchas> GetLandPurchases()
         {

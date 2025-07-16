@@ -7,7 +7,7 @@ namespace FmsAPI.Service
 {
     public class OrderService : IOrderService
     {
-    FarmManagementSystemEnities context = new FarmManagementSystemEnities();
+        FarmManagementSystemEntities context = new FarmManagementSystemEntities();
 
         public List<Order> GetOrders()
         {

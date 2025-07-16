@@ -15,10 +15,10 @@ namespace FmsAPI.Data
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class FarmManagementSystemEnities : DbContext
+    public partial class FarmManagementSystemEntities : DbContext
     {
-        public FarmManagementSystemEnities()
-            : base("name=FarmManagementSystemEnities")
+        public FarmManagementSystemEntities()
+            : base("name=FarmManagementSystemEntities")
         {
         }
     

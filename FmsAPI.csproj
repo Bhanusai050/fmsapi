@@ -271,98 +271,98 @@
     <Compile Include="Controllers\VendorController.cs" />
     <Compile Include="Controllers\WorkersController.cs" />
     <Compile Include="Data\Animal.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\AnimalBatch.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Asset.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Company.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\ContactMessage.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Customer.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Expens.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\FarmDbContext.cs" />
     <Compile Include="Data\FeedPurchas.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Feed_Consumption.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Feed_Inventory.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FMSDb.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FMSDb.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FMSDb.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FMSDb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\FMSDb.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FMSDb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Data\GetAnimalsByBatch_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\IdLookup.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\IdLookupValue.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Investment.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\LandPurchas.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Data\FMSDbContext.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>FMSDbContext.edmx</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Order.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\PasswordResetToken.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Permission.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Production.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Role.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\RolePermission.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Salary.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\User.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\UserRole.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Vendor.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\Worker.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>FMSDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -428,15 +428,15 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="DatabaseScripts\Farm__Management__System.sql" />
-    <Content Include="Data\Model1.Context.tt">
+    <Content Include="Data\FMSDb.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FMSDbContext.edmx</DependentUpon>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>FMSDb.edmx</DependentUpon>
+      <LastGenOutput>FMSDb.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Data\Model1.tt">
+    <Content Include="Data\FMSDb.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FMSDbContext.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>FMSDb.edmx</DependentUpon>
+      <LastGenOutput>FMSDb.cs</LastGenOutput>
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -462,12 +462,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <EntityDeploy Include="Data\FMSDbContext.edmx">
+    <EntityDeploy Include="Data\FMSDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FMSDbContext.Designer.cs</LastGenOutput>
+      <LastGenOutput>FMSDb.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Data\FMSDbContext.edmx.diagram">
-      <DependentUpon>FMSDbContext.edmx</DependentUpon>
+    <Content Include="Data\FMSDb.edmx.diagram">
+      <DependentUpon>FMSDb.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

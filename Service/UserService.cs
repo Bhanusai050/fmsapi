@@ -9,9 +9,9 @@ namespace FmsAPI.Service
 {
     public class UserService : IUserService
     {
-        private readonly FarmManagementSystemEnities _context;
+        private readonly FarmManagementSystemEntities _context;
 
-        public UserService(FarmManagementSystemEnities context)
+        public UserService(FarmManagementSystemEntities context)
         {
             _context = context;
         }

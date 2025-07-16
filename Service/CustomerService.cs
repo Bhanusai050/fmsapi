@@ -9,7 +9,7 @@ namespace FmsAPI.Service
 {
     public class CustomerService: ICustomerService
     {
-    FarmManagementSystemEnities context = new FarmManagementSystemEnities();
+        FarmManagementSystemEntities context = new FarmManagementSystemEntities();
 
         public List<Customer> GetCustomers()
         {
