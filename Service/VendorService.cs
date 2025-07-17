@@ -40,8 +40,9 @@ namespace FmsAPI.Service
       existing.PhoneNumber = vendor.PhoneNumber;
       existing.Email = vendor.Email;
       existing.Location = vendor.Location;
+      existing.CountryCode = vendor.CountryCode;
 
-      return _context.SaveChanges() > 0;
+            return _context.SaveChanges() > 0;
     }
 
     public bool DeleteVendor(int id)

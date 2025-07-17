@@ -13,6 +13,7 @@ namespace FmsAPI.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [RoutePrefix("api")]
     public class ContactMessagesController : ApiController
+
     {
         private readonly IContactMessageService _contactService;
 

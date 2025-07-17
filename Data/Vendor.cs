@@ -19,6 +19,8 @@ namespace FmsAPI.Data
         public string VendorType { get; set; }
         public string Category { get; set; }
         public string PhoneNumber { get; set; }
+
+        public string CountryCode { get; set; }
         public string Email { get; set; }
         public string Location { get; set; }
     }
