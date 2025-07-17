@@ -928,7 +928,6 @@
           <Property Name="PaymentDate" Type="DateTime" Precision="0" />
           <Property Name="Amount" Type="Decimal" Precision="12" Scale="2" />
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Worker" Relationship="Self.FK__Salaries__Worker__76969D2E" FromRole="Salaries" ToRole="Workers" />
         </EntityType>
         <EntityType Name="UserRole">
           <Key>
@@ -1246,7 +1245,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="FarmManagementSystemEnities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="FarmManagementSystemEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AnimalBatches" EntityType="Self.AnimalBatch" />
           <EntitySet Name="Animals" EntityType="Self.Animal" />
           <EntitySet Name="Assets" EntityType="Self.Asset" />
@@ -1439,7 +1438,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FarmManagementSystemModelStoreContainer" CdmEntityContainer="FarmManagementSystemEnities">
+        <EntityContainerMapping StorageEntityContainer="FarmManagementSystemModelStoreContainer" CdmEntityContainer="FarmManagementSystemEntities">
           <EntitySetMapping Name="AnimalBatches">
             <EntityTypeMapping TypeName="FarmManagementSystemModel.AnimalBatch">
               <MappingFragment StoreEntitySet="AnimalBatches">

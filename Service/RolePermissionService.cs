@@ -9,7 +9,7 @@ namespace FmsAPI.Service
 {
     public class RolePermissionService: IRolePermissionService
     {
-    FarmManagementSystemEnities context = new FarmManagementSystemEnities();
+        FarmManagementSystemEntities context = new FarmManagementSystemEntities();
 
         public List<RolePermission> GetRolePermissions()
         {

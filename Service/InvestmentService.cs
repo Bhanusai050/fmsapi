@@ -9,7 +9,7 @@ namespace FmsAPI.Service
 {
     public class InvestmentService: IInvestmentService
     {
-    FarmManagementSystemEnities context = new FarmManagementSystemEnities();
+        FarmManagementSystemEntities context = new FarmManagementSystemEntities();
 
         public List<Investment> GetInvestments()
         {

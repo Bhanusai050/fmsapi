@@ -19,8 +19,5 @@ namespace FmsAPI.Data
         public Nullable<int> FeedID { get; set; }
         public Nullable<decimal> Quantity { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
-    
-        public virtual Animal Animal { get; set; }
-        public virtual Feed_Inventory Feed_Inventory { get; set; }
     }
 }

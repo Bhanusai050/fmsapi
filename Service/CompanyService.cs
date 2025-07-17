@@ -9,7 +9,7 @@ namespace FmsAPI.Service
 {
     public class CompanyService: ICompanyService
     {
-    FarmManagementSystemEnities context = new FarmManagementSystemEnities();
+        FarmManagementSystemEntities context = new FarmManagementSystemEntities();
 
         public List<Company> GetCompany()
         {

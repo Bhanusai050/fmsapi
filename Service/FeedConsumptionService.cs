@@ -9,7 +9,7 @@ namespace FmsAPI.Service
 {
     public class FeedConsumptionService: IFeedConsumptionService
     {
-    FarmManagementSystemEnities context = new FarmManagementSystemEnities();
+        FarmManagementSystemEntities context = new FarmManagementSystemEntities();
 
         public List<Feed_Consumption> GetFeedConsumptions()
         {

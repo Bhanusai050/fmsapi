@@ -20,8 +20,5 @@ namespace FmsAPI.Data
         public Nullable<decimal> Quantity { get; set; }
         public Nullable<decimal> Cost { get; set; }
         public Nullable<System.DateTime> PurchaseDate { get; set; }
-    
-        public virtual IdLookupValue IdLookupValue { get; set; }
-        public virtual Vendor Vendor { get; set; }
     }
 }

@@ -11,11 +11,11 @@ namespace FmsAPI.Service
 {
     public class ContactMessageService : IContactMessageService
     {
-        private readonly FarmManagementSystemEnities _context;
+        private readonly FarmManagementSystemEntities _context;
 
         public ContactMessageService()
         {
-            _context = new FarmManagementSystemEnities();
+            _context = new FarmManagementSystemEntities();
         }
 
         public async Task<List<ContactMessage>> GetAllMessagesAsync()

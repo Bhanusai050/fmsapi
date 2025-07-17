@@ -7,9 +7,9 @@ namespace FmsAPI.Service
 {
   public class VendorService : IVendorService
   {
-    private readonly FarmManagementSystemEnities _context;
+    private readonly FarmManagementSystemEntities _context;
 
-    public VendorService(FarmManagementSystemEnities context)
+    public VendorService(FarmManagementSystemEntities context)
     {
       _context = context;
     }

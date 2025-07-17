@@ -9,7 +9,7 @@ namespace FmsAPI.Service
 {
     public class AnimalService : IAnimalSerivce
     {
-    FarmManagementSystemEnities context = new FarmManagementSystemEnities();
+        FarmManagementSystemEntities context = new FarmManagementSystemEntities();
 
         public List<Animal> GetAnimals()
         {
