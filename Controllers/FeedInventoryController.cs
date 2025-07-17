@@ -74,7 +74,7 @@ namespace FmsAPI.Controllers
     [Route("feedtypes")]
     public IHttpActionResult GetFeedTypes()
     {
-      using (var db = new FarmManagementSystemEnities())
+      using (var db = new FarmManagementSystemEntities())
       {
         var feedTypes = db.IdLookupValues
           .Where(v => v.IdLookupID == 13)

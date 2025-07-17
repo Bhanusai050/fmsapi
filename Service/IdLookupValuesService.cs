@@ -9,7 +9,7 @@ namespace FmsAPI.Service
 {
     public class IdLookupValuesService: IIdLookupValuesService
     {
-    FarmManagementSystemEnities context = new FarmManagementSystemEnities();
+        FarmManagementSystemEntities context = new FarmManagementSystemEntities();
 
         public List<IdLookupValue> GetIdLookupValues()
         {

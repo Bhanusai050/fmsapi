@@ -21,7 +21,5 @@ namespace FmsAPI.Data
         public Nullable<decimal> Cost { get; set; }
         public Nullable<int> VendorID { get; set; }
         public string Notes { get; set; }
-    
-        public virtual Vendor Vendor { get; set; }
     }
 }

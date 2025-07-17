@@ -9,7 +9,7 @@ namespace FmsAPI.Service
 {
     public class WorkerService: IWorkerService
     {
-    FarmManagementSystemEnities context = new FarmManagementSystemEnities();
+        FarmManagementSystemEntities context = new FarmManagementSystemEntities();
 
         public List<Worker> GetWorkers()
         {

@@ -7,9 +7,9 @@ namespace FmsAPI.Service
 {
   public class AnimalBatchService : IAnimalBatchService
   {
-    private readonly FarmManagementSystemEnities _context;
+    private readonly FarmManagementSystemEntities _context;
 
-    public AnimalBatchService(FarmManagementSystemEnities context)
+    public AnimalBatchService(FarmManagementSystemEntities context)
     {
       _context = context;
     }

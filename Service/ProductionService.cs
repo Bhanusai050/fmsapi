@@ -9,7 +9,7 @@ namespace FmsAPI.Service
 {
     public class ProductionService: IProductionService
     {
-    FarmManagementSystemEnities context = new FarmManagementSystemEnities();
+        FarmManagementSystemEntities context = new FarmManagementSystemEntities();
 
         public List<Production> GetProductions()
         {

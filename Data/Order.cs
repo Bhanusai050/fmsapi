@@ -23,8 +23,5 @@ namespace FmsAPI.Data
         public Nullable<decimal> Quantity { get; set; }
         public Nullable<decimal> UnitPrice { get; set; }
         public Nullable<decimal> TotalAmount { get; set; }
-    
-        public virtual Customer Customer { get; set; }
-        public virtual Production Production { get; set; }
     }
 }
