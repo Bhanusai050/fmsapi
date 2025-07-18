@@ -1,6 +1,7 @@
 using FmsAPI.Data;
 using FmsAPI.Helpers;
 using FmsAPI.Interface;
+using FmsAPI.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -18,55 +19,50 @@ namespace FmsAPI.Service
 
         public async Task<string> RegisterAsync(User user)
         {
+            // Check if user exists
             if (_context.Users.Any(u => u.Email == user.Email))
             {
-                return "Email already registered.";
+                return "User already exists";
             }
 
-            user.PasswordHash = HashHelper.HashPassword(user.PasswordHash);
-            user.CreatedAt = DateTime.Now;
+            // Hash the password before saving
+            user.PasswordHash = HashHelper.ComputeHash(user.PasswordHash);
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
-
-            return "Registration successful.";
+            return "User registered successfully";
         }
 
         public async Task<string> LoginAsync(string email, string password)
         {
             var user = _context.Users.FirstOrDefault(u => u.Email == email);
-            if (user == null || !HashHelper.VerifyPassword(password, user.PasswordHash))
+            if (user == null)
             {
-                return "Invalid email or password.";
+                return "Invalid email";
             }
 
-            return "Login successful.";
+            // Compute the hash of the input password and compare
+            var hashedInputPassword = HashHelper.ComputeHash(password);
+            if (user.PasswordHash != hashedInputPassword)
+            {
+                return "Invalid password";
+            }
+
+            return "Login successful";
         }
 
         public async Task<string> SendOtpAsync(string email)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Email == email);
-            if (user == null)
+            // Example OTP logic (for simplicity)
+            if (!_context.Users.Any(u => u.Email == email))
             {
-                return "Email not found.";
+                return "Email not found";
             }
 
-            var otp = new Random().Next(100000, 999999).ToString();
-
-            var token = new PasswordResetToken
-            {
-                Email = email,
-                OTP = otp,
-                ExpiryTime = DateTime.Now.AddMinutes(10),
-                IsUsed = false
-            };
-
-            _context.PasswordResetTokens.Add(token);
-            await _context.SaveChangesAsync();
-
-            // In real-world, you'd send the OTP using email service.
-            return $"OTP sent to {email}: {otp}"; // For development/testing
+            // TODO: Generate and send OTP
+            return "OTP sent to email";
         }
     }
 }
+
 

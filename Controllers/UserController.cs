@@ -36,8 +36,17 @@ namespace FmsAPI.Controllers
         public async Task<IHttpActionResult> Login(LoginModel model)
         {
             var result = await _userService.LoginAsync(model.Email, model.Password);
-            return Ok(result);
+
+            if (result == "Login successful.")
+            {
+                return Ok(new { success = true, message = result });
+            }
+            else
+            {
+                return Content(HttpStatusCode.Unauthorized, new { success = false, message = result });
+            }
         }
+
 
         // POST: api/users/send-otp
         [HttpPost]
