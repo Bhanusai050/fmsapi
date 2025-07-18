@@ -8,7 +8,7 @@ namespace FmsAPI
         public static void Register(HttpConfiguration config)
         {
             // ✅ Enable CORS before routing
-            var cors = new EnableCorsAttribute("http://localhost:4200", "*", "*");
+            var cors = new EnableCorsAttribute("*", "*", "*");
             config.EnableCors(cors);
 
             // ✅ Register attribute-based routes

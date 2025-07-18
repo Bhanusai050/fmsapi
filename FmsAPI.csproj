@@ -392,6 +392,7 @@
     <Compile Include="Interface\IUserService.cs" />
     <Compile Include="Interface\IVendorService.cs" />
     <Compile Include="Interface\IWorkerService.cs" />
+    <Compile Include="Models\LoginRequestModel.cs" />
     <Compile Include="Models\LoginResponse.cs" />
     <Compile Include="Models\UserSignupModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

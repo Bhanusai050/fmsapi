@@ -1,24 +1,25 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace FmsAPI.Helpers
 {
     public static class HashHelper
     {
-        public static string ComputeHash(string input)
+        public static string HashPassword(string password)
         {
-            using (SHA256 sha256 = SHA256.Create())
+            using (var sha = SHA256.Create())
             {
-                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(input));
-                StringBuilder builder = new StringBuilder();
-
-                foreach (byte b in bytes)
-                {
-                    builder.Append(b.ToString("x2"));
-                }
-
-                return builder.ToString();
+                var bytes = Encoding.UTF8.GetBytes(password);
+                var hash = sha.ComputeHash(bytes);
+                return Convert.ToBase64String(hash);
             }
+        }
+
+        public static bool VerifyPassword(string inputPassword, string hashedPassword)
+        {
+            var hashOfInput = HashPassword(inputPassword);
+            return hashedPassword == hashOfInput;
         }
     }
 }

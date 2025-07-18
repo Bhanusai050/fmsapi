@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace FmsAPI.Models
+﻿namespace FmsAPI.Models
 {
-    public class LoginResponse
+    public class LoginResponseModel
     {
-        public string AccessToken { get; set; }
-        public string Email { get; set; }
+        public bool Success { get; set; }         // ✅ Fixes "no definition for 'Success'"
+        public string Message { get; set; }
+        public string Token { get; set; }         // Optional: for JWT or future use
+        public string Username { get; set; }      // Optional: display username in UI
+        public string Email { get; set; }         // Optional
     }
 }
