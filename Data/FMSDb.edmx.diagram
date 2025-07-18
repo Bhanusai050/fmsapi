@@ -5,7 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="5de49a4075bf4f5080dc22366be925df" Name="Diagram1" ZoomLevel="67">
-        <EntityTypeShape EntityType="FarmManagementSystemModel.AnimalBatch" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.Animal" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.Asset" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.Company" Width="1.5" PointX="10.75" PointY="11.125" IsExpanded="true" />
@@ -17,7 +16,6 @@
         <EntityTypeShape EntityType="FarmManagementSystemModel.FeedPurchas" Width="1.5" PointX="6" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.IdLookup" Width="1.5" PointX="1.5" PointY="19.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.IdLookupValue" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FarmManagementSystemModel.Investment" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.LandPurchas" Width="1.5" PointX="12.75" PointY="11.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.Order" Width="1.5" PointX="7.5" PointY="15.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.PasswordResetToken" Width="1.5" PointX="5.75" PointY="13.125" IsExpanded="true" />
@@ -30,7 +28,6 @@
         <EntityTypeShape EntityType="FarmManagementSystemModel.User" Width="1.5" PointX="7.75" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.Vendor" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.Worker" Width="1.5" PointX="10.75" PointY="7.25" IsExpanded="true" />
-        <AssociationConnector Association="FarmManagementSystemModel.FK__Animals__BatchID__59FA5E80" ManuallyRouted="false" />
         <AssociationConnector Association="FarmManagementSystemModel.FK__Animals__AnimalS__59063A47" ManuallyRouted="false" />
         <AssociationConnector Association="FarmManagementSystemModel.FK__Animals__AnimalT__5535A963" ManuallyRouted="false" />
         <AssociationConnector Association="FarmManagementSystemModel.FK__Animals__GenderI__5629CD9C" ManuallyRouted="false" />
@@ -53,6 +50,9 @@
         <AssociationConnector Association="FarmManagementSystemModel.FK__UserRoles__RoleI__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="FarmManagementSystemModel.FK__Salaries__Worker__76969D2E" ManuallyRouted="false" />
         <AssociationConnector Association="FarmManagementSystemModel.FK__UserRoles__UserI__398D8EEE" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FarmManagementSystemModel.Investment" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="FarmManagementSystemModel.AnimalBatch" Width="1.5" PointX="3.375" PointY="0.875" />
+        <AssociationConnector Association="FarmManagementSystemModel.FK__Animals__BatchID__59FA5E80" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

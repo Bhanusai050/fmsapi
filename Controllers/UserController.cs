@@ -11,7 +11,7 @@ using System.Web.Http.Cors;
 
 namespace FmsAPI.Controllers
 {
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class UserController : ApiController
     {
         private readonly IUserService _userService;
@@ -36,17 +36,8 @@ namespace FmsAPI.Controllers
         public async Task<IHttpActionResult> Login(LoginModel model)
         {
             var result = await _userService.LoginAsync(model.Email, model.Password);
-
-            if (result == "Login successful.")
-            {
-                return Ok(new { success = true, message = result });
-            }
-            else
-            {
-                return Content(HttpStatusCode.Unauthorized, new { success = false, message = result });
-            }
+            return Ok(result);
         }
-
 
         // POST: api/users/send-otp
         [HttpPost]
