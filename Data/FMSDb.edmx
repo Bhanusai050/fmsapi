@@ -236,6 +236,8 @@
           <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="PasswordHash" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="CreatedAt" Type="datetime" />
+          <Property Name="ResetOtp" Type="varchar" MaxLength="10" />
+          <Property Name="OtpExpiry" Type="datetime" />
         </EntityType>
         <EntityType Name="Vendors">
           <Key>
@@ -919,16 +921,6 @@
           <Property Name="UserID" Type="Int32" />
           <Property Name="RoleID" Type="Int32" />
           </EntityType>
-        <EntityType Name="User">
-          <Key>
-            <PropertyRef Name="UserID" />
-          </Key>
-          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="PasswordHash" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
-        </EntityType>
         <EntityType Name="Vendor">
           <Key>
             <PropertyRef Name="VendorID" />
@@ -1204,18 +1196,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__UserRoles__UserI__398D8EEE">
-          <End Role="Users" Type="Self.User" Multiplicity="0..1" />
-          <End Role="UserRoles" Type="Self.UserRole" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Users">
-              <PropertyRef Name="UserID" />
-            </Principal>
-            <Dependent Role="UserRoles">
-              <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityContainer Name="FarmManagementSystemEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Animals" EntityType="Self.Animal" />
           <EntitySet Name="Assets" EntityType="Self.Asset" />
@@ -1237,7 +1217,6 @@
           <EntitySet Name="Roles" EntityType="Self.Role" />
           <EntitySet Name="Salaries" EntityType="Self.Salary" />
           <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
-          <EntitySet Name="Users" EntityType="Self.User" />
           <EntitySet Name="Vendors" EntityType="Self.Vendor" />
           <EntitySet Name="Workers" EntityType="Self.Worker" />
           <AssociationSet Name="FK__Animals__AnimalS__59063A47" Association="Self.FK__Animals__AnimalS__59063A47">
@@ -1324,10 +1303,6 @@
             <End Role="Workers" EntitySet="Workers" />
             <End Role="Salaries" EntitySet="Salaries" />
           </AssociationSet>
-          <AssociationSet Name="FK__UserRoles__UserI__398D8EEE" Association="Self.FK__UserRoles__UserI__398D8EEE">
-            <End Role="Users" EntitySet="Users" />
-            <End Role="UserRoles" EntitySet="UserRoles" />
-          </AssociationSet>
           <FunctionImport Name="AddAnimalToBatch">
             <Parameter Name="BatchID" Mode="In" Type="Int32" />
             <Parameter Name="AnimalName" Mode="In" Type="String" />
@@ -1390,6 +1365,11 @@
             <End Role="AnimalBatch" EntitySet="AnimalBatches" />
             <End Role="Animal" EntitySet="Animals" />
           </AssociationSet>
+          <EntitySet Name="Users" EntityType="FarmManagementSystemModel.User" />
+          <AssociationSet Name="FK__UserRoles__UserI__398D8EEE" Association="FarmManagementSystemModel.FK__UserRoles__UserI__398D8EEE">
+            <End Role="User" EntitySet="Users" />
+            <End Role="UserRole" EntitySet="UserRoles" />
+          </AssociationSet>
         </EntityContainer>
         <ComplexType Name="GetAnimalsByBatch_Result">
           <Property Type="Int32" Name="AnimalID" Nullable="false" />
@@ -1431,6 +1411,30 @@
             </Principal>
             <Dependent Role="Animal">
               <PropertyRef Name="BatchID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordHash" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedAt" Type="DateTime" Precision="3" />
+          <Property Name="ResetOtp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="OtpExpiry" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK__UserRoles__UserI__398D8EEE">
+          <End Type="FarmManagementSystemModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="FarmManagementSystemModel.UserRole" Role="UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1664,17 +1668,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="FarmManagementSystemModel.User">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
-                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Vendors">
             <EntityTypeMapping TypeName="FarmManagementSystemModel.Vendor">
               <MappingFragment StoreEntitySet="Vendors">
@@ -1741,6 +1734,19 @@
                 <ScalarProperty Name="PurchasedDate" ColumnName="PurchasedDate" />
                 <ScalarProperty Name="BatchName" ColumnName="BatchName" />
                 <ScalarProperty Name="BatchID" ColumnName="BatchID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="FarmManagementSystemModel.User">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="OtpExpiry" ColumnName="OtpExpiry" />
+                <ScalarProperty Name="ResetOtp" ColumnName="ResetOtp" />
+                <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

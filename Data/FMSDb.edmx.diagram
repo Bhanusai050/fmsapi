@@ -25,7 +25,6 @@
         <EntityTypeShape EntityType="FarmManagementSystemModel.Role" Width="1.5" PointX="7.75" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.Salary" Width="1.5" PointX="13" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.UserRole" Width="1.5" PointX="10" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FarmManagementSystemModel.User" Width="1.5" PointX="7.75" PointY="6.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.Vendor" Width="1.5" PointX="0.75" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.Worker" Width="1.5" PointX="10.75" PointY="7.25" IsExpanded="true" />
         <AssociationConnector Association="FarmManagementSystemModel.FK__Animals__AnimalS__59063A47" ManuallyRouted="false" />
@@ -49,10 +48,11 @@
         <AssociationConnector Association="FarmManagementSystemModel.FK__RolePermi__RoleI__3E52440B" ManuallyRouted="false" />
         <AssociationConnector Association="FarmManagementSystemModel.FK__UserRoles__RoleI__3A81B327" ManuallyRouted="false" />
         <AssociationConnector Association="FarmManagementSystemModel.FK__Salaries__Worker__76969D2E" ManuallyRouted="false" />
-        <AssociationConnector Association="FarmManagementSystemModel.FK__UserRoles__UserI__398D8EEE" ManuallyRouted="false" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.Investment" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="FarmManagementSystemModel.AnimalBatch" Width="1.5" PointX="3.375" PointY="0.875" />
         <AssociationConnector Association="FarmManagementSystemModel.FK__Animals__BatchID__59FA5E80" />
+        <EntityTypeShape EntityType="FarmManagementSystemModel.User" Width="1.5" PointX="10.375" PointY="15" />
+        <AssociationConnector Association="FarmManagementSystemModel.FK__UserRoles__UserI__398D8EEE" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -368,6 +368,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\HashHelper.cs" />
+    <Compile Include="Helpers\MailService.cs" />
     <Compile Include="Interface\IAnimalBatchService.cs" />
     <Compile Include="Interface\IAnimalSerivce.cs" />
     <Compile Include="Interface\IAssetService.cs" />
@@ -392,8 +393,11 @@
     <Compile Include="Interface\IUserService.cs" />
     <Compile Include="Interface\IVendorService.cs" />
     <Compile Include="Interface\IWorkerService.cs" />
+    <Compile Include="Models\EmailRequestModel.cs" />
     <Compile Include="Models\LoginRequestModel.cs" />
     <Compile Include="Models\LoginResponse.cs" />
+    <Compile Include="Models\OtpModel.cs" />
+    <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="Models\UserSignupModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\AnimalBatchService.cs" />

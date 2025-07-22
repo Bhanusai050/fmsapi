@@ -19,5 +19,7 @@ namespace FmsAPI.Data
         public string Email { get; set; }
         public string PasswordHash { get; set; }
         public Nullable<System.DateTime> CreatedAt { get; set; }
+        public string ResetOtp { get; set; }
+        public Nullable<System.DateTime> OtpExpiry { get; set; }
     }
 }
