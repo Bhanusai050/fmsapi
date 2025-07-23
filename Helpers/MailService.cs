@@ -18,27 +18,50 @@ namespace FmsAPI.Helpers
             SendEmail(recipientEmail, subject, body);
         }
 
+        public static void SendContactAcknowledgementEmail(string recipientEmail, string recipientName, string messageContent)
+        {
+            string subject = "Thanks for contacting Farm Management System";
+            string body = $@"
+        <h2>Hello {recipientName},</h2>
+        <p>We have received your message:</p>
+        <blockquote>{messageContent}</blockquote>
+        <p>Our team will respond to you shortly.</p>
+        <br/>
+        <p>Regards,<br/>Farm Management System Team</p>";
+
+            SendEmail(recipientEmail, subject, body);
+        }
+
+
         public static void SendEmail(string toEmail, string subject, string body)
         {
-            var fromAddress = new MailAddress(senderEmail, senderName);
-            var toAddress = new MailAddress(toEmail);
+            try
+            {
+                var fromAddress = new MailAddress(senderEmail, senderName);
+                var toAddress = new MailAddress(toEmail);
 
-            using (var smtp = new SmtpClient
+                using (var smtp = new SmtpClient
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    Credentials = new NetworkCredential(senderEmail, appPassword)
+                })
+                using (var message = new MailMessage(fromAddress, toAddress)
+                {
+                    Subject = subject,
+                    Body = body,
+                    IsBodyHtml = true
+                })
+                {
+                    smtp.Send(message);
+                }
+            }
+            catch (Exception ex)
             {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                Credentials = new NetworkCredential(senderEmail, appPassword)
-            })
-            using (var message = new MailMessage(fromAddress, toAddress)
-            {
-                Subject = subject,
-                Body = body,
-                IsBodyHtml = true
-            })
-            {
-                smtp.Send(message);
+                throw new Exception("Email sending failed: " + ex.Message);
             }
         }
+
     }
 }

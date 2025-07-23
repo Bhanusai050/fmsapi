@@ -1,4 +1,5 @@
 ﻿using FmsAPI.Data;
+using FmsAPI.Helpers;
 using FmsAPI.Interface;
 using FmsAPI.Models;
 using FmsAPI.Service;
@@ -39,24 +40,17 @@ namespace FmsAPI.Controllers
 
         [HttpPost]
         [Route("Postcontactmessages")]
-        public async Task<IHttpActionResult> PostMessage(ContactMessage contactMessage)
+        public async Task<IHttpActionResult> SubmitContact(ContactMessage contact)
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            var savedMessage = await _contactService.AddMessageAsync(contact);
 
-            try
-            {
-                var result = await _contactService.AddMessageAsync(contactMessage);
-                return Ok(new
-                {
-                    message = "Message submitted successfully",
-                    data = result
-                });
-            }
-            catch (Exception ex)
-            {
-                return InternalServerError(ex);
-            }
+            // Send thank you email to user
+            MailService.SendContactAcknowledgementEmail(
+                savedMessage.Email, savedMessage.Name, savedMessage.Message
+            );
+
+            return Ok("Message received. A confirmation has been sent to your email.");
         }
     }
+    
 }

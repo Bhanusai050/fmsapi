@@ -2,6 +2,7 @@
 using FmsAPI.Interface;
 using FmsAPI.Data;
 using System.Web.Http;
+using System;
 
 namespace FmsAPI.Controllers
 {
@@ -65,16 +66,27 @@ namespace FmsAPI.Controllers
         return NotFound();
     }
 
-    // DELETE: api/vendor/delete/5
-    [HttpDelete]
-    [Route("delete/{id:int}")]
-    public IHttpActionResult DeleteVendor(int id)
-    {
-      bool result = _vendorService.DeleteVendor(id);
-      if (result)
-        return Ok("Vendor deleted successfully.");
-      else
-        return NotFound();
+        // DELETE: api/vendor/delete/5
+        [HttpDelete]
+        [Route("delete/{id:int}")]
+        public IHttpActionResult DeleteVendor(int id)
+        {
+            try
+            {
+                bool result = _vendorService.DeleteVendor(id);
+                if (result)
+                    return Ok("Vendor deleted successfully.");
+                else
+                    return NotFound();
+            }
+            catch (InvalidOperationException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
     }
-  }
 }

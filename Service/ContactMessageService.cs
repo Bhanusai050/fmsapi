@@ -25,7 +25,7 @@ namespace FmsAPI.Service
 
         public async Task<ContactMessage> AddMessageAsync(ContactMessage message)
         {
-            message.SubmittedAt = DateTime.Now;
+            message.SubmittedAt = System.DateTime.Now;
             _context.ContactMessages.Add(message);
             await _context.SaveChangesAsync();
             return message;

@@ -11,5 +11,7 @@ namespace FmsAPI.Interface
     {
         Task<ContactMessage> AddMessageAsync(ContactMessage contactMessage);
         Task<List<ContactMessage>> GetAllMessagesAsync();
+
+        
     }
 }

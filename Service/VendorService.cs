@@ -2,6 +2,7 @@ using FmsAPI.Interface;
 using FmsAPI.Data;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace FmsAPI.Service
 {
@@ -45,13 +46,18 @@ namespace FmsAPI.Service
             return _context.SaveChanges() > 0;
     }
 
-    public bool DeleteVendor(int id)
-    {
-      var vendor = _context.Vendors.FirstOrDefault(v => v.VendorID == id);
-      if (vendor == null) return false;
+        public bool DeleteVendor(int id)
+        {
+            var vendor = _context.Vendors.FirstOrDefault(v => v.VendorID == id);
+            if (vendor == null) return false;
 
-      _context.Vendors.Remove(vendor);
-      return _context.SaveChanges() > 0;
+            // Check if this vendor is used in any Animal record
+            bool isReferenced = _context.Animals.Any(a => a.VendorID == id);
+            if (isReferenced)
+                throw new InvalidOperationException("Cannot delete vendor. It is referenced by animals.");
+
+            _context.Vendors.Remove(vendor);
+            return _context.SaveChanges() > 0;
+        }
     }
-  }
 }
